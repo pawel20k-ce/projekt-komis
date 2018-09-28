@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="en"
+      layout:decorate="index">
+<head>
+    <meta charset="UTF-8">
+    <title>Edycja</title>
+</head>
+<body>
+<main role="main" layout:fragment="container" class="container">
+    <form method="post" th:action="@{/user/save}" th:object="${user}">
+        <input class="form-control" type="text" placeholder="username" th:field="*{username}"/></br>
+        <input class="form-control" type="password" placeholder="password" th:field="*{password}"/></br>
+        <input class="form-control" type="password" placeholder="confirm" th:field="*{passwordConfirm}"/></br>
+        <input class="form-control" type="submit" value="OK"/>
+    </form>
+</main>
+</body>
+</html>

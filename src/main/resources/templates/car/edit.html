@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="en"
+      layout:decorate="index">
+<head>
+    <meta charset="UTF-8">
+    <title>Edycja samochodu</title>
+</head>
+<body>
+<main role="main" layout:fragment="container" class="container">
+    <form method="post" th:action="@{/car/save}" th:object="${car}">
+
+        <input class="form-control" type="text" th:field="*{id}" disable="disable"/><br/>
+        <input class="form-control" type="text" th:field="*{marka}"/><br/>
+        <input class="form-control" type="text" th:field="*{model}"/><br/>
+        <input class="form-control" type="text" th:field="*{rocznik}"/><br/>
+        <input class="form-control" type="text" th:field="*{nrRej}"/><br/>
+        <input class="form-control" type="submit" value="Ok">
+    </form>
+</main>
+</body>
+</html>
