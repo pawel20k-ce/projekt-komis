@@ -1,33 +1,51 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
       lang="en"
       layout:decorate="index">
+
+
 <head>
     <meta charset="UTF-8">
     <title>Lista</title>
 </head>
+
 <body>
 <main role="main" layout:fragment="container" class="container">
+
+
+    <br>
+    <br>
+    <br>
+
     <table class="table">
         <thead>
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">Marka</th>
-            <th scope="col">Model</th>
-            <th scope="col">Rocznik</th>
-            <th scope="col">nr Rej</th>
+            <th scope="col">ZDJĘCIE</th>
+            <th scope="col">MARKA</th>
+            <th scope="col">MODEL</th>
+            <th scope="col">ROCZNIK</th>
+            <th scope="col">PRZEBIEG</th>
+            <th scope="col">CENA</th>
+
         </tr>
         </thead>
         <tbody>
-        <tr th:each="car : ${cars}">
-            <th scope="row" th:text="${car.id}">1</th>
-            <td th:text="${car.marka}">Mark</td>
-            <td th:text="${car.model}">Otto</td>
-            <td th:text="${car.rocznik}">Otto</td>
-            <td th:text="${car.nrRej}">Otto</td>
+        <tr  th:each="car : ${cars}">
+
+          <!--  <td img th:src="${car.zdjecie}" width="150" height="100"></td>-->
+
+            <td><img th:src="${car.zdjecie}" width="150" height="100" /></td>
+            <td  th:text="${car.marka}"></td>
+            <td th:text="${car.model}"></td>
+            <td th:text="${car.rocznik}"></td>
+            <td th:text="${car.przebieg}"></td>
+            <td th:text="${car.cena}"></td>
+            <td> <a class="nav-link" th:href="@{'/car/'+${car.id}+'/details'}">SZCZEGÓŁY</a></td>
         </tr>
         </tbody>
     </table>
+
+
 </main>
 </body>
 </html>

@@ -10,7 +10,4 @@ public class KomisApplication {
         SpringApplication.run(KomisApplication.class, args);
     }
 
-
-
-
 }
