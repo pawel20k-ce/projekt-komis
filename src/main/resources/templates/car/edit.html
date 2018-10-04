@@ -8,15 +8,67 @@
 </head>
 <body>
 <main role="main" layout:fragment="container" class="container">
-    <form method="post" th:action="@{/car/save}" th:object="${car}">
+    </br>
+    </br>
+    </br>
 
-        <input class="form-control" type="text" th:field="*{id}" disable="disable"/><br/>
-        <input class="form-control" type="text" th:field="*{marka}"/><br/>
-        <input class="form-control" type="text" th:field="*{model}"/><br/>
+    <form method="post" th:action="@{/car/save}" th:object="${car}">
+    <div class="row justify-content-md-center">
+    <div class="row">
+        <div class="col">
+
+                    ID
+                <input class="form-control" type="text" th:field="*{id}" disable="disable" readonly/><br/>
+                    MARKA
+                <input class="form-control" type="text" th:field="*{marka}"/><br/>
+                    MODEL
+                <input class="form-control" type="text" th:field="*{model}"/><br/>
+                    ROCZNK
+                <input class="form-control" type="text" th:field="*{rocznik}"/><br/>
+                    TYP PALIWA
+                <input class="form-control" type="text" th:field="*{typ_paliwa}"/><br/>
+
+        </div>
+
+
+            <div class="col">
+
+                    PRZEBIEG
+                    <input class="form-control" type="text" th:field="*{przebieg}"/><br/>
+                    SILNK
+                    <input class="form-control" type="text" th:field="*{silnik}"/><br/>
+                    MOC
+                    <input class="form-control" type="text" th:field="*{moc}"/><br/>
+                    SKRZYNIA BIEGÓW
+                    <input class="form-control" type="text" th:field="*{skrzynia_biegow}"/><br/>
+                    CENA
+                    <input class="form-control" type="text" th:field="*{cena}"/><br/>
+                    ZDJĘCIE
+                    <input class="form-control" type="text" th:field="*{zdjecie}" disable="disable" /><br/>
+
+            </div>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col">
+
+
+
+        <!--<input class="form-control" type="text" th:field="*{id}" disable="disable"/><br/>
+        <input class="form-control" type="text" th:field="*{marka}"/>marka<br/>
+        <input class="form-control" type="text" th:field="*{model}"/>model<br/>
         <input class="form-control" type="text" th:field="*{rocznik}"/><br/>
-        <input class="form-control" type="text" th:field="*{nrRej}"/><br/>
+        <input class="form-control" type="text" th:field="*{typ_paliwa}"/><br/>
+        <input class="form-control" type="text" th:field="*{przebieg}"/><br/>
+        <input class="form-control" type="text" th:field="*{silnik}"/><br/>
+        <input class="form-control" type="text" th:field="*{moc}"/><br/>
+        <input class="form-control" type="text" th:field="*{skrzynia_biegow}"/><br/>
+        <input class="form-control" type="text" th:field="*{cena}"/><br/>-->
         <input class="form-control" type="submit" value="Ok">
+              </div>
+        </div>
     </form>
+
 </main>
 </body>
 </html>

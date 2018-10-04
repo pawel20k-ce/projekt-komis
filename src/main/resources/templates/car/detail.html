@@ -1,0 +1,78 @@
+<!doctype html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      lang="en"
+      layout:decorate="index">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Detail</title>
+</head>
+<body>
+<main role="main" layout:fragment="container" class="container">
+
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col">
+            <img th:src="${car.zdjecie}" width="400" height="250" />
+            <br>
+            <br>
+            <a class="nav-link" th:href="@{'/car/'+${car.id}+'/edit'}">EDYTUJ<span class="sr-only">(current)</span></a>
+
+            </div>
+
+
+        <div class="col">
+            <h1 th:text="${car.marka}">MARKA:</h1>
+            <h2 th:text="${car.model}"></h2>
+
+            <table class="table table-bordered">
+                <tbody>
+                <tr>
+                    <th scope="row">Rocznik</th>
+                    <td th:text="${car.rocznik}"></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Przebieg</th>
+                    <td th:text="${car.przebieg}"></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Silnik</th>
+                    <td th:text="${car.silnik}"></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Typ Paliwa</th>
+                    <td th:text="${car.typ_paliwa}"></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Moc</th>
+                    <td th:text="${car.moc}"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Skrzynia Biegów</th>
+                    <td th:text="${car.skrzynia_biegow}"></td>
+                </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

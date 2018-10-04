@@ -2,6 +2,8 @@ package pl.ottenburger.projekt.model;
 
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "cars")
@@ -37,6 +39,20 @@ public class Car {
     private String opis;
     @Column
     private Integer ilosc_jazd_probnych;
+    @Column
+    private String zdjecie;
+    @Column
+    private Integer cena;
+
+    @OneToMany(mappedBy = "car")
+    private Set<Transakcja> transakcje;
+
+    public void addTransakcja(Transakcja transakcja) {
+        if (transakcje == null) {
+            transakcje = new HashSet<>();
+        }
+        transakcje.add(transakcja);
+    }
 
     public String getZdjecie() {
         return zdjecie;
@@ -46,12 +62,7 @@ public class Car {
         this.zdjecie = zdjecie;
     }
 
-    @Column
-    private String zdjecie;
 
-
-    @Column
-    private Integer cena;
 
 
     public Car() {

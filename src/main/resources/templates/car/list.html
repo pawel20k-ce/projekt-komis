@@ -40,7 +40,8 @@
             <td th:text="${car.rocznik}"></td>
             <td th:text="${car.przebieg}"></td>
             <td th:text="${car.cena}"></td>
-            <td> <a class="nav-link" th:href="@{'/car/'+${car.id}+'/details'}">SZCZEGÓŁY</a></td>
+           <!-- <td> <a class="nav-link" th:href="@{'/car/'+${car.id}+'/details'}">SZCZEGÓŁY</a></td>-->
+            <td> <a class="nav-link" th:href="@{'/car/'+${car.id}+'/detail'}">SZCZEGÓŁY</a></td>
         </tr>
         </tbody>
     </table>

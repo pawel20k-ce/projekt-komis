@@ -4,10 +4,7 @@ package pl.ottenburger.projekt.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.ottenburger.projekt.model.Car;
 import pl.ottenburger.projekt.services.CarService;
 
@@ -39,9 +36,26 @@ public class CarController {
         return "car/edit";
     }
 
+    @GetMapping("/{id}/detail")
+    public String showDetailCar(@PathVariable("id") Integer id, Model model) {
+        model.addAttribute("car", carService.getCar(id));
+
+        return "car/detail";
+    }
+
+    @GetMapping("/{id}/edit")
+    public String showEditCar(@PathVariable("id") Integer id, Model model) {
+        model.addAttribute("car", carService.getCar(id));
+
+        return "car/edit";
+    }
+
     @PostMapping("/save")
     public String addCar(@ModelAttribute("car") Car car) {
         carService.save(car);
         return "redirect:/car/list";
     }
+
+
+
 }
