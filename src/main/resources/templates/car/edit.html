@@ -12,7 +12,7 @@
     </br>
     </br>
 
-    <form method="post" th:action="@{/car/save}" th:object="${car}">
+    <form method="post" enctype="multipart/form-data" th:action="@{/car/save}" th:object="${car}">
     <div class="row justify-content-md-center">
     <div class="row">
         <div class="col">
@@ -45,7 +45,7 @@
                     <input class="form-control" type="text" th:field="*{cena}"/><br/>
                     ZDJĘCIE
                     <input class="form-control" type="text" th:field="*{zdjecie}" disable="disable" /><br/>
-
+                <input class="form-control-file mb-sm-1" style="padding-bottom: auto" type="file" name="myFile"/><br/>
             </div>
         </div>
     </div>

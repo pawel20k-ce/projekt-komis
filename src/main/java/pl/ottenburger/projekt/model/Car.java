@@ -1,7 +1,13 @@
 package pl.ottenburger.projekt.model;
 
 
+
+
 import javax.persistence.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -44,7 +50,7 @@ public class Car {
     @Column
     private Integer cena;
 
-    @OneToMany(mappedBy = "car")
+    /*@OneToMany(mappedBy = "car")
     private Set<Transakcja> transakcje;
 
     public void addTransakcja(Transakcja transakcja) {
@@ -52,7 +58,7 @@ public class Car {
             transakcje = new HashSet<>();
         }
         transakcje.add(transakcja);
-    }
+    }*/
 
     public String getZdjecie() {
         return zdjecie;
@@ -205,6 +211,9 @@ public class Car {
     public void setCena(Integer cena) {
         this.cena = cena;
     }
+
+
+
 
 
 }

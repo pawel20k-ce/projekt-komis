@@ -5,9 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import pl.ottenburger.projekt.model.Car;
 import pl.ottenburger.projekt.services.CarService;
 
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -50,12 +52,21 @@ public class CarController {
         return "car/edit";
     }
 
-    @PostMapping("/save")
+    /*@PostMapping("/save")
     public String addCar(@ModelAttribute("car") Car car) {
         carService.save(car);
         return "redirect:/car/list";
+    }*/
+    @PostMapping("/save")
+    public String addCar(@ModelAttribute("car") Car car, @RequestParam(value = "myFile", required = false) MultipartFile multipartFile) {
+        try {
+            carService.save(car);
+            carService.saveCarImage(multipartFile.getBytes(), car);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "redirect:/car/list";
+
+
     }
-
-
-
 }

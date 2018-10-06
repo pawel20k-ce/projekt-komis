@@ -6,6 +6,10 @@ import org.springframework.stereotype.Service;
 import pl.ottenburger.projekt.model.Car;
 import pl.ottenburger.projekt.repositories.CarRepository;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.List;
 
 @Service
@@ -28,6 +32,13 @@ public class CarService {
 
     public Car save(Car car) {
         return carRepository.save(car);
+    }
+
+    public void saveCarImage(byte[] bytes, Car car) throws IOException {
+        if (car.getId() == null) {
+            throw new RuntimeException("Nie można zapisać obrazka.");
+        }
+        Files.write(Paths.get("./images/" + car.getId() + ".jpg"), bytes, StandardOpenOption.CREATE_NEW);
     }
 }
 

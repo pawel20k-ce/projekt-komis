@@ -20,7 +20,8 @@
     <br>
     <div class="row">
         <div class="col">
-            <img th:src="${car.zdjecie}" width="400" height="250" />
+           <!-- <img th:src="${car.zdjecie}" width="400" height="250" />-->
+            <img th:src="@{/image/get(id=${car.id})}" width="400" height="250" />
             <br>
             <br>
             <a class="nav-link" th:href="@{'/car/'+${car.id}+'/edit'}">EDYTUJ<span class="sr-only">(current)</span></a>

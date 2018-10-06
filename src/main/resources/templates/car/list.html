@@ -33,8 +33,8 @@
         <tr  th:each="car : ${cars}">
 
           <!--  <td img th:src="${car.zdjecie}" width="150" height="100"></td>-->
-
-            <td><img th:src="${car.zdjecie}" width="150" height="100" /></td>
+          <!-- // <td><img th:src="${car.zdjecie}" width="150" height="100" /></td>-->
+            <td><img th:src="@{/image/get(id=${car.id})}" width="150" height="100" /></td>
             <td  th:text="${car.marka}"></td>
             <td th:text="${car.model}"></td>
             <td th:text="${car.rocznik}"></td>

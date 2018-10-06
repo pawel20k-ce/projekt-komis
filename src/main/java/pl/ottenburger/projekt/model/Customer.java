@@ -1,18 +1,19 @@
 package pl.ottenburger.projekt.model;
 
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "customers")
 public class Customer {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    @Column
+    private String firstName;
+    @Column
+    private String lastName;
 
-    private Integer nr_klienta;
-
-    private String nazwisko;
-
-    private String imie;
-
-    private String Adres;
-
-    private Integer NIP;
-
-    private Integer PESEL;
 
 }
