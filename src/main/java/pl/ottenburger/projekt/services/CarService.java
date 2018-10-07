@@ -30,15 +30,27 @@ public class CarService {
         return carRepository.findById(id).get();
     }
 
+    public List<Car> findCarKomis(String status) { return carRepository.findByStatus(status);}
+
     public Car save(Car car) {
         return carRepository.save(car);
     }
+
+   /* public Car addstatusKupione(Integer id){
+        Car car = carRepository.findById(id).get();
+        car.setStatus("kupione");
+        return car;
+    }*/
 
     public void saveCarImage(byte[] bytes, Car car) throws IOException {
         if (car.getId() == null) {
             throw new RuntimeException("Nie można zapisać obrazka.");
         }
         Files.write(Paths.get("./images/" + car.getId() + ".jpg"), bytes, StandardOpenOption.CREATE_NEW);
+    }
+
+    public Car findById(Integer id) {
+        return carRepository.findById(id).orElse(null);
     }
 }
 

@@ -32,6 +32,15 @@ public class CarController {
 
     }
 
+    @GetMapping("/listKlient")
+    public String showListKlient(String status,Model model) {
+        status = "kupiony";
+        List<Car> cars = carService.findCarKomis(status);
+        model.addAttribute("cars", cars);
+        return "car/list";
+
+    }
+
     @GetMapping("/add")
     public String showAddCar(Model model) {
         model.addAttribute("car", new Car());
@@ -52,6 +61,14 @@ public class CarController {
         return "car/edit";
     }
 
+   @GetMapping("/{id}/dodajdokomisu")
+    public String addstatuscar(@PathVariable("id") Integer id) {
+        Car car = carService.findById(id);
+        car.setStatus("kupiony");
+        carService.save(car);
+
+        return "redirect:/car/list";
+    }
     /*@PostMapping("/save")
     public String addCar(@ModelAttribute("car") Car car) {
         carService.save(car);

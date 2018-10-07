@@ -1,15 +1,7 @@
 package pl.ottenburger.projekt.model;
 
 
-
-
 import javax.persistence.*;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "cars")
@@ -49,7 +41,8 @@ public class Car {
     private String zdjecie;
     @Column
     private Integer cena;
-
+    @Column
+    private String status;
     /*@OneToMany(mappedBy = "car")
     private Set<Transakcja> transakcje;
 
@@ -60,21 +53,10 @@ public class Car {
         transakcje.add(transakcja);
     }*/
 
-    public String getZdjecie() {
-        return zdjecie;
-    }
-
-    public void setZdjecie(String zdjecie) {
-        this.zdjecie = zdjecie;
-    }
-
-
-
-
     public Car() {
     }
 
-    public Car(Integer rocznik, String marka, String model, Integer nr_oc, Integer nr_dowodu_rej, String typ_paliwa, Integer przebieg, Double silnik, Integer moc, String skrzynia_biegow, String VIN, String opis, Integer ilosc_jazd_probnych, String zdjecie, Integer cena) {
+    public Car(Integer rocznik, String marka, String model, Integer nr_oc, Integer nr_dowodu_rej, String typ_paliwa, Integer przebieg, Double silnik, Integer moc, String skrzynia_biegow, String VIN, String opis, Integer ilosc_jazd_probnych, String zdjecie, Integer cena, String status) {
         this.rocznik = rocznik;
         this.marka = marka;
         this.model = model;
@@ -90,6 +72,15 @@ public class Car {
         this.ilosc_jazd_probnych = ilosc_jazd_probnych;
         this.zdjecie = zdjecie;
         this.cena = cena;
+        this.status = status;
+    }
+
+    public String getZdjecie() {
+        return zdjecie;
+    }
+
+    public void setZdjecie(String zdjecie) {
+        this.zdjecie = zdjecie;
     }
 
     public Integer getId() {
@@ -212,8 +203,13 @@ public class Car {
         this.cena = cena;
     }
 
+    public String getStatus() {
+        return status;
+    }
 
-
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
 
 }
